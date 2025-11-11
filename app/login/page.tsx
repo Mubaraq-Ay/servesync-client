@@ -3,6 +3,7 @@
 import { useState } from "react";
 import PasswordInput from "../components/PasswordInput";
 import TextInput from "../components/TextInput";
+import Button from "../components/Button";
 
 
 export default function LoginPage() {
@@ -82,7 +83,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="E.g. johndoe@email.com"
+              placeholder="johndoe@email.com"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
             />
           </div>
@@ -163,12 +164,7 @@ export default function LoginPage() {
             </a>
           </div>
 
-          <button
-            onClick={handleLogin}
-            className="w-full bg-indigo-600 text-white font-medium py-3 rounded-lg hover:bg-indigo-700 transition mb-6 cursor-pointer"
-          >
-            Login
-          </button>
+          <Button text='Login' />
 
           {/* create new acct  */}
 

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import PasswordInput from "../components/PasswordInput";
+import Button from "../components/Button";
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
@@ -113,7 +114,7 @@ export default function RegisterPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="E.g. johndoe@email.com"
+              placeholder="johndoe@email.com"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
             />
           </div>
@@ -149,12 +150,7 @@ export default function RegisterPage() {
             </label>
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-indigo-600 text-white font-medium py-3 rounded-lg hover:bg-indigo-700 transition mb-6 cursor-pointer"
-          >
-            Register
-          </button>
+          <Button text='Register' />
 
           <div className="text-center">
             <span className="text-sm text-gray-600">Already registered? </span>
