@@ -42,11 +42,10 @@ export default function ForgotPassword() {
             />
           </div>
 
-          {/* send button  */}
-
+          {/* send button */}
            <Button text='Send Verification Link' />
         </div>
       </div>
     </form>
   );
-}
+} 
