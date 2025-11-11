@@ -1,12 +1,15 @@
 "use client";
-import { log } from "console";
-import { use, useState } from "react";
+ 
+import { useState } from "react";
+import PasswordInput from "../components/PasswordInput";
+import TextInput from "../components/TextInput";
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState("false");
-  const [rememberMe, setRememberMe] = useState("false");
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -153,7 +156,7 @@ export default function LoginPage() {
               <span className="text-sm text-gray-700">Remember Me</span>
             </label>
             <a
-              href="/forgot"
+              href="/forgot-password"
               className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >
               Forgot Password?

@@ -1,14 +1,17 @@
 "use client";
 import { useState } from "react";
+import PasswordInput from "../components/PasswordInput";
 
 export default function RegisterPage() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setconfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
-  const handleRegister = (e) => {
+  const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -16,7 +19,7 @@ export default function RegisterPage() {
       return;
     }
 
-    console.log("Registered", { email, password, confirmPassword, rememberMe });
+    console.log("Registered", { firstName, lastName, email, password, confirmPassword, rememberMe });
   };
 
   const handleGoogleLogin = () => {
@@ -45,7 +48,6 @@ export default function RegisterPage() {
             onClick={handleGoogleLogin}
             className="w-full flex items-center justify-center gap-3 border-2 border-gray-300 rounded-lg py-3 mb-4 hover:bg-gray-50 transition"
           >
-            {/* Google Icon */}
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path
                 fill="#4285F4"
@@ -64,18 +66,42 @@ export default function RegisterPage() {
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
-            <span className="font-medium text-gray-700">
-              Register with Google
-            </span>
+            <span className="font-medium text-gray-700">Register with Google</span>
           </button>
 
           {/* Divider */}
           <div className="flex items-center gap-4 mb-6">
             <div className="flex-1 border-t border-gray-300"></div>
-            <span className="text-sm text-gray-500">
-              or Register with Email
-            </span>
+            <span className="text-sm text-gray-500">or Register with Email</span>
             <div className="flex-1 border-t border-gray-300"></div>
+          </div>
+
+          {/* First Name and Last Name - Side by side */}
+          <div className="flex gap-4 mb-4">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                First Name
+              </label>
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="John"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Last Name
+              </label>
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Doe"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
           </div>
 
           {/* Email */}
@@ -105,7 +131,7 @@ export default function RegisterPage() {
           <PasswordInput
             label="Confirm Password"
             value={confirmPassword}
-            onChange={setconfirmPassword}
+            onChange={setConfirmPassword}
             showPassword={showPassword}
             setShowPassword={setShowPassword}
           />
@@ -121,17 +147,11 @@ export default function RegisterPage() {
               />
               <span className="text-sm text-gray-700">Remember Me</span>
             </label>
-            <a
-              href="/forgot"
-              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
-            >
-              Forgot Password?
-            </a>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white font-medium py-3 rounded-lg hover:bg-indigo-700 transition mb-6"
+            className="w-full bg-indigo-600 text-white font-medium py-3 rounded-lg hover:bg-indigo-700 transition mb-6 cursor-pointer"
           >
             Register
           </button>
@@ -148,32 +168,5 @@ export default function RegisterPage() {
         </div>
       </div>
     </form>
-  );
-}
-
-// Reusable password input component
-function PasswordInput({ label, value, onChange, showPassword, setShowPassword }) {
-  return (
-    <div className="mb-4">
-      <label className="block text-sm font-medium text-gray-700 mb-2">
-        {label}
-      </label>
-      <div className="relative">
-        <input
-          type={showPassword ? "text" : "password"}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={`Enter your ${label.toLowerCase()}`}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-12"
-        />
-        <button
-          type="button"
-          onClick={() => setShowPassword(!showPassword)}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-        >
-          {showPassword ? "🙈" : "👁️"}
-        </button>
-      </div>
-    </div>
   );
 }
