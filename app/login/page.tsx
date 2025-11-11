@@ -1,8 +1,6 @@
 "use client";
  
 import { useState } from "react";
-import PasswordInput from "../components/PasswordInput";
-import TextInput from "../components/TextInput";
 import Button from "../components/Button";
 
 
