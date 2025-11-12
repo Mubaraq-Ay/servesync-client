@@ -77,7 +77,7 @@ export default function RegisterPage() {
             <div className="flex-1 border-t border-gray-300"></div>
           </div>
 
-          {/* First Name and Last Name - Side by side */}
+          
           <div className="flex gap-4 mb-4">
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700 mb-2">
