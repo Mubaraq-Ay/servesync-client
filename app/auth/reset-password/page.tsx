@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import ResetPasswordInput from "../components/ResetPasswordInput"; // rename import
-import Button from "../components/Button";
+import ResetPasswordInput from "../../components/ResetPasswordInput";  
+import Button from "../../components/Button";
 
-export default function ResetPasswordPage() { // rename component
+export default function ResetPasswordPage() {  
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

@@ -1,7 +1,7 @@
 "use client";
  
 import { useState } from "react";
-import Button from "../components/Button";
+import Button from "../../components/Button";
 
 
 export default function LoginPage() {
@@ -155,7 +155,7 @@ export default function LoginPage() {
               <span className="text-sm text-gray-700">Remember Me</span>
             </label>
             <a
-              href="/forgot-password"
+              href="forgot-password"
               className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >
               Forgot Password?
@@ -169,7 +169,7 @@ export default function LoginPage() {
           <div className="text-center">
             <span className="text-sm text-gray-600">Not registered yet? </span>
             <a
-              href="/register"
+              href="register"
               className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >
               Create an account →

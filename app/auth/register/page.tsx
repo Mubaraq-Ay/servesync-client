@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import PasswordInput from "../components/PasswordInput";
-import Button from "../components/Button";
+import PasswordInput from "../../components/PasswordInput";
+import Button from "../../components/Button";
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
@@ -155,7 +155,7 @@ export default function RegisterPage() {
           <div className="text-center">
             <span className="text-sm text-gray-600">Already registered? </span>
             <a
-              href="/login"
+              href="login"
               className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
             >
               Login →
