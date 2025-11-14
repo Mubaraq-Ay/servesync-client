@@ -8,4 +8,3 @@ export default function button({ text }: { text: string }) {
     </button>
   );
 }
-
