@@ -4,6 +4,7 @@ import Navbar from './navbar/page';
 import Features from './features/page';
 import Trustedby from './trusted-by/page';
 import Integrations from './integrations/page';
+ 
 
 export default function HomePage() {
 
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Trustedby />
       <Features />
       <Integrations />
+      
      </div>
   );
 }
