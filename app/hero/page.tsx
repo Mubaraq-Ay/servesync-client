@@ -32,7 +32,7 @@ export default function Hero() {
                     <div className="relative">
                       <div className="bg-white rounded-2xl shadow-xl p-4 h-96 flex items-center justify-center overflow-hidden">
                         <img
-                          src="/dashboard-preview.png"
+                          src="./assets/test.png"
                           alt="Dashboard Preview"
                           className="rounded-xl object-cover w-full h-full"
                         />
