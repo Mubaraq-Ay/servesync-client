@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState } from "react";
 import {
   FiHome,
@@ -8,10 +8,11 @@ import {
   FiUsers,
   FiSettings,
   FiBell,
+  
 } from "react-icons/fi";
-import CreateTaskModal from '../components/CreateTaskModal';
+import CreateTaskModal from "../components/CreateTaskModal";
 
-export default function DashboardNav() {
+export default function DashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [tasks, setTasks] = useState([
@@ -32,7 +33,7 @@ export default function DashboardNav() {
     };
     setTasks([newTask, ...tasks]);
   };
- 
+
   return (
     <div className="flex h-screen bg-gray-50">
       <aside
@@ -57,7 +58,15 @@ export default function DashboardNav() {
         </div>
 
         <nav className="flex-1 px-4 py-6 space-y-2">
-          
+
+          <a
+            href="/dashboard"
+            className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition"
+          >
+            <FiHome className="w-5 h-5" />
+            <span className="font-medium">Dashboard</span>
+          </a>
+
           <a
             href="/dashboard/tasks"
             className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition"
@@ -90,7 +99,7 @@ export default function DashboardNav() {
             <span className="font-medium">Team</span>
           </a>
 
-         <a 
+          <a
             href="/dashboard/settings"
             className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition"
           >
@@ -112,7 +121,7 @@ export default function DashboardNav() {
         </div>
       </aside>
 
-      {/* Overlay */}
+      {/* Overlay - Only shows when sidebar is open on mobile */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
@@ -122,7 +131,9 @@ export default function DashboardNav() {
 
       {/* Main Area */}
       <div className="flex-1 flex flex-col">
+        {/* Header */}
         <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-8">
+          {/* Left: Hamburger + Title */}
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -148,19 +159,17 @@ export default function DashboardNav() {
             </h1>
           </div>
 
+          {/* Right: Notifications */}
           <div className="flex items-center gap-4">
             <button className="p-2 hover:bg-gray-100 rounded-lg">
               <FiBell className="w-5 h-5 text-gray-600 cursor-pointer" />
             </button>
           </div>
         </header>
-
-        {/* CONTINUE WITH YOUR MAIN CONTENT AND MODAL HERE */}
-
+ 
       </div>
 
-      {/* Create Task Modal */}
-      <CreateTaskModal 
+      <CreateTaskModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         onSubmit={handleCreateTask}

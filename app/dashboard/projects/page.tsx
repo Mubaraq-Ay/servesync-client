@@ -1,7 +1,9 @@
 'use client';
 
+import DashboardNav from '../../components/DashboardNav'
+
 export default function Projects() {
     return (
-        <h1>Projects</h1>
+        <DashboardNav />
     )
 }

@@ -1,9 +1,15 @@
 'use client';
 
-import { h1 } from "framer-motion/client";
+import DashboardNav from '../../components/DashboardNav';
+import Content from '../../components/Content';
+
+ 
 
 export default function Tasks() {
     return (
-        <h1>Tasks</h1>
+        <>
+        <DashboardNav />
+         
+        </>
     )
 }
